@@ -1,11 +1,10 @@
-<p>main-page works!</p>
+<app-header></app-header>
 <div class="home-container">
   <h1>Добро пожаловать, {{ user?.fullName || user?.username }}!</h1>
   <p>Email: {{ user?.email }}</p>
 
   <button (click)="moveToCreateQuiz()">Создать игру</button>
-
-
-  <button (click)="logout()">Выйти</button>
   <button (click)="moveToAdminPanel()">Админ панель</button>
+  <button (click)="logout()">Выйти</button>
 </div>
+<app-footer></app-footer>

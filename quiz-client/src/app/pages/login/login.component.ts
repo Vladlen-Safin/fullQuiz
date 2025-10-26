@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  title = 'quiz-client';
+  title = 'Quiz-client';
   
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],

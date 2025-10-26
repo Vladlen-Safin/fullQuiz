@@ -1,0 +1,82 @@
+/* Общий стиль страницы */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+  
+  /* Фон */
+  .pagestyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: url("../../../assets/images/planet.gif");
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+  }
+  
+  /* Контейнер присоединения к игре */
+  .join-game-container {
+    background-color: rgba(255, 255, 255, 0.875);
+    width: 50%;
+    height:50%;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Заголовок */
+  .join-game-container h2 {
+    color: #008c94;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  
+  /* Поля ввода */
+  .join-game-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .join-game-container input:focus {
+    border-color: #00b4b6;
+    box-shadow: 0 0 8px rgba(0, 180, 182, 0.4);
+    outline: none;
+  }
+  
+  /* Кнопка */
+  .join-game-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00b4b6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .join-game-container button:hover {
+    background-color: #01989a;
+    transform: translateY(-2px);
+  }

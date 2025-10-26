@@ -1,59 +1,180 @@
+/* Стиль для всей страницы */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* убираем скролл */
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Фон на всю страницу */
+.pageimage {
+  display: flex;
+  justify-content: flex-start; /* Контейнер будет слева */
+  align-items: center;         /* По центру по вертикали */
+  height: 100vh;
+  width: 100%;
+
+  /* Фоновая картинка */
+  background: url("../../../assets/images/download.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* заменено, чтобы не вызывалось прокручивание */
+}
+
+/* Контейнер авторизации */
 .login-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 30px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;                  /* Можно изменить на 30–50% */
+  height: 100%;                 /* Немного меньше, чтобы был отступ от краёв */
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+/* Заголовки */
+.login-container h2 {
+  margin-top: 0;
+  color: #006d77;
+  text-align: center;
+}
 
-  .form-group {
-    margin-bottom: 16px;
-  }
+/* Формы */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  .form-control {
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
 
-  .btn-primary {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #1976d2;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
 
-    &:disabled {
-      background-color: #9e9e9e;
-      cursor: not-allowed;
-    }
-  }
+input.form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
 
-  .error {
-    color: #d32f2f;
-    font-size: 12px;
-    margin-top: 4px;
-  }
+/* Ошибки */
+.error small {
+  color: #e63946;
+  font-size: 12px;
+}
+/* === Базовый стиль кнопок — оставлен твой === */
+button {
+  background-color: #00b4b6;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
-  .register-link {
-    text-align: center;
-    margin-top: 20px;
+button:hover {
+  background-color: #01989a;
+  transform: translateY(-2px);
+}
 
-    .link {
-      background: none;
-      border: none;
-      color: #1976d2;
-      cursor: pointer;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-  }
+/* Кнопка "Подключиться к игре" */
+button:nth-of-type(2) {
+  background-color: #00b4b6;
+  border: 2px solid #fff;
+}
+
+/* === Контейнер кнопки с цыплёнком === */
+.sipa {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 20%;
+  box-sizing: border-box;
+}
+
+/* === Обёртка для кнопки === */
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+}
+
+/* === Сама кнопка (не меняем визуал) === */
+.sipa button {
+  position: relative;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 16px;
+  background-color: #00b4b6;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* === Ховер эффект — оставляем твой стиль === */
+.sipa button:hover {
+  background-color: #01989a;
+  transform: translateY(-2px);
+}
+
+/* === Цыплёнок === */
+.chicken {
+  position: absolute;
+  bottom: 100%; /* над кнопкой */
+  left: 0;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  animation: chickenRun 10s linear infinite;
+}
+
+/* === Бег цыплёнка по кнопке === */
+@keyframes chickenRun {
+  0%   { left: 0; transform: scaleX(1) translateY(0); }
+  25%  { transform: scaleX(1) translateY(-6px); }
+  50%  { left: calc(100% - 60px); transform: scaleX(1) translateY(0); }
+  75%  { transform: scaleX(-1) translateY(-6px); }
+  100% { left: 0; transform: scaleX(-1) translateY(0); }
+}
+
+/* === Подпрыгивание при наведении на кнопку === */
+@keyframes chickenJump {
+  0%, 100% { transform: translateY(0) scaleX(1); }
+  50% { transform: translateY(-25px) scaleX(1); }
+}
+
+/* === При наведении: остановка бега и подпрыгивание === */
+.button-wrapper button:hover .chicken {
+  animation: chickenJump 0.8s ease-in-out infinite;
+}
+
+
+/* Ссылка регистрации */
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-link .link {
+  background: none;
+  color: #00b4b6;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
 }

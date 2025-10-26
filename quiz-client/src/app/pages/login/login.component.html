@@ -1,4 +1,4 @@
-
+<div class="pageimage">
 <div class="login-container">
   <h2>Авторизация</h2>
   <h2>{{title}}</h2>
@@ -19,7 +19,6 @@
         <small *ngIf="email?.errors?.['email']">Неверный формат email</small>
       </div>
     </div>
-
     <!-- Пароль -->
     <div class="form-group">
       <label for="password">Пароль:</label>
@@ -45,6 +44,17 @@
     Нет аккаунта?
     <button type="button" class="link" (click)="moveToRegister()">Зарегистрироваться</button>
   </p>
-  <button (click)="moveToConnectGame()"> Подключиться к игре</button>
-</div>
+     <!-- === Цыпленок и кнопка === -->
+     <div class="sipa">
+      <div class="button-wrapper">
+        <button type="button" class="link" (click)="moveToConnectGame()">
+          Подключиться к игре
+          <div class="chicken">
+            <app-sipa-icon></app-sipa-icon>
+          </div>
+        </button>
+      </div>
+    </div>
+    
 
+</div>

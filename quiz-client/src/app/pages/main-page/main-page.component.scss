@@ -1,0 +1,69 @@
+/* Общие стили */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+  
+  /* Контейнер меню */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: calc(100vh - 120px); /* учитываем header и footer */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 40px auto;
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Приветствие */
+  .home-container h1 {
+    color: #007f85;
+    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  .home-container p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  /* Кнопки меню */
+  .home-container button {
+    width: 60%;
+    max-width: 280px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    background-color: #00b4b6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .home-container button:hover {
+    background-color: #01989a;
+    transform: translateY(-2px);
+  }
+  
+/* Особая кнопка выхода */
+.home-container button:nth-of-type(3) {
+    background-color: #e63946;
+  }
+  
+  .home-container button:nth-of-type(3):hover {
+    background-color: #d62839;
+  }
