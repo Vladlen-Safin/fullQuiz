@@ -28,3 +28,40 @@ button.danger {
   background-color: #dc3545;
   color: #fff;
 }
+
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.timer-circle {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.timer-bg {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 8;
+}
+
+.timer-progress {
+  fill: none;
+  stroke: #3f51b5;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+  font-size: 18px;
+  text-anchor: middle;
+  fill: #333;
+  transform: rotate(90deg);
+  transform-origin: center;
+  font-weight: bold;
+}

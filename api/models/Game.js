@@ -4,10 +4,18 @@ const gameSchema = new mongoose.Schema({
   gameId: { type: String, required: true, unique: true },
   teacherId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   students: [
-    {
-      name: String,
-      correctCount: { type: Number, default: 0 }
-    }
+    // {
+    //   name: String,
+    //   correctCount: { type: Number, default: 0 }
+    // }
+    new mongoose.Schema(
+      {
+        id: { type: String, required: true }, // твой внешний ID игрока
+        name: String,
+        correctCount: { type: Number, default: 0 }
+      },
+      { _id: false } // <-- ВАЖНО! Отключает создание ObjectId
+    )
   ],
   questions: [
     {

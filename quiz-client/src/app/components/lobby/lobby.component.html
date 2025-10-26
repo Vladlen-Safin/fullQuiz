@@ -1,123 +1,3 @@
-<!-- <div class="lobby-container">
-  <h2>Игра: {{ gameId }}</h2>
-  <h3>Подключённые студенты:</h3>
-
-  <ul>
-    <li *ngFor="let s of students"> {{ s.name }}</li>
-  </ul>
-</div> -->
-
-<!-- <div class="lobby-container">
-  <h2>Игра: {{ gameId }}</h2>
-
-  <div *ngIf="isTeacher; else studentLobby">
-    <h3>Вы — преподаватель (ведущий)</h3>
-    <p>Ожидаем подключение студентов...</p>
-
-    <ul>
-      <li *ngFor="let s of students">{{ s.name }}</li>
-    </ul>
-  </div>
-
-  <ng-template #studentLobby>
-    <h3>Вы — студент</h3>
-    <p>Ожидайте начала игры от преподавателя</p>
-
-    <h3>Подключённые студенты:</h3>
-    <ul>
-      <li *ngFor="let s of students">{{ s.name }}</li>
-    </ul>
-  </ng-template>
-</div> -->
-
-<!-- <div class="lobby-container">
-  <h2>Игра: {{ gameId }}</h2>
-
-  <div *ngIf="isTeacher; else studentLobby">
-    <h3>Вы — преподаватель (ведущий)</h3>
-
-    <h4>Подключённые студенты:</h4>
-    <ul>
-      <li *ngFor="let s of students">
-        {{ s.name }}
-        <span *ngIf="answersReceived.includes(s.name)" class="answered">(ответил)</span>
-      </li>
-    </ul>
-
-    <div *ngIf="!gameEnded; else gameResults">
-      <div *ngIf="currentQuestion; else noQuestion">
-        <h3>Текущий вопрос:</h3>
-        <p>{{ currentQuestion.text }}</p>
-        <ul>
-          <li *ngFor="let opt of currentQuestion.options"
-              [class.correct]="correctAnswers.includes(opt)">
-            {{ opt }}
-          </li>
-        </ul>
-
-        <button (click)="showAnswer()">Показать ответ</button>
-        <button (click)="nextQuestion()">Следующий вопрос</button>
-        <button (click)="endGame()">Завершить игру</button>
-      </div>
-
-      <ng-template #noQuestion>
-        <button (click)="startQuestion()" [disabled]="questions.length === 0">
-          Начать первый вопрос
-        </button>
-      </ng-template>
-    </div>
-  </div>
-
-  <ng-template #studentLobby>
-    <h3>Вы — студент</h3>
-
-    <div *ngIf="!currentQuestion && !gameEnded">
-      <p>Ожидайте начала игры от преподавателя...</p>
-    </div>
-
-    <div *ngIf="currentQuestion && !gameEnded">
-      <h4>{{ currentQuestion.text }}</h4>
-
-      <button
-        *ngFor="let opt of currentQuestion.options"
-        (click)="chooseAnswer(opt)"
-        [disabled]="answersReceived.includes(user.fullName)"
-      >
-        {{ opt }}
-      </button>
-
-      <div *ngIf="correctAnswers.length > 0">
-        <p>Правильный ответ: {{ correctAnswers.join(', ') }}</p>
-      </div>
-    </div>
-
-    <div *ngIf="gameEnded">
-      <h3>Игра завершена!</h3>
-      <p>Ожидайте результатов.</p>
-    </div>
-  </ng-template>
-
-  <ng-template #gameResults>
-    <h2>Результаты игры</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Студент</th>
-          <th>Правильных ответов</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let r of results">
-          <td>{{ r.name }}</td>
-          <td>{{ r.correctCount }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ng-template>
-</div>
- -->
-
-
  <div class="lobby-container">
   <h2>Игра: {{ gameId }}</h2>
 
@@ -149,6 +29,21 @@
         <button (click)="showAnswer()">Показать ответ</button>
         <button (click)="nextQuestion()">Следующий вопрос</button>
         <button class="danger" (click)="endGame()">Завершить игру</button>
+
+        <br/><br/>
+        <!-- Таймер -->
+        <div *ngIf="showTimer" class="timer-wrapper">
+          <svg class="timer-circle" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" class="timer-bg"></circle>
+            <circle
+              cx="50" cy="50" r="45"
+              class="timer-progress"
+              [attr.stroke-dasharray]="282.6"
+              [attr.stroke-dashoffset]="(282.6 * (100 - timerProgress)) / 100"
+            ></circle>
+            <text x="50" y="55" class="timer-text">{{ timer }}с</text>
+          </svg>
+        </div>
       </div>
 
       <ng-template #chooseQuestion>
@@ -185,6 +80,20 @@
           [disabled]="answersReceived.includes(user.fullName)">
           {{ opt }}
         </button>
+      </div>
+
+      <!-- Таймер -->
+      <div *ngIf="showTimer" class="timer-wrapper">
+        <svg class="timer-circle" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" class="timer-bg"></circle>
+          <circle
+            cx="50" cy="50" r="45"
+            class="timer-progress"
+            [attr.stroke-dasharray]="282.6"
+            [attr.stroke-dashoffset]="(282.6 * (100 - timerProgress)) / 100"
+          ></circle>
+          <text x="50" y="55" class="timer-text">{{ timer }}с</text>
+        </svg>
       </div>
 
       <div *ngIf="correctAnswers.length > 0">

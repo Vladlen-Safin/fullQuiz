@@ -20,7 +20,10 @@ export class JoinGameComponent {
     joinGame() {
         if (!this.gameId || !this.studentName) return;
 
-        this.quizSocket.joinGame(this.gameId, this.studentName);
-        this.router.navigate(['/lobby', this.gameId]);
+        // this.quizSocket.joinGame(this.gameId, this.studentName);
+        // this.router.navigate(['/lobby', this.gameId]);
+        this.router.navigate(['/lobby', this.gameId], {
+        queryParams: { name: this.studentName }
+});
     }
 }

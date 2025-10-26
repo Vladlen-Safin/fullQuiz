@@ -35,7 +35,8 @@ export const initSocket = (io) => {
         return;
       }
 
-      game.students.push({ name: studentName, correctCount: 0 });
+      // game.students.push({ name: studentName, correctCount: 0 });
+      game.students.push({ id: socket.id, name: studentName, correctCount: 0 });
       socket.join(gameId);
 
       io.to(gameId).emit("studentJoined", { students: game.students });
@@ -78,35 +79,44 @@ export const initSocket = (io) => {
 
     // 🔹 Студент отвечает
     socket.on("studentAnswer", async ({ gameId, studentName, selected }) => {
-      const game = activeGames.get(gameId);
-      if (!game || !game.currentQuestion) return;
+    const game = activeGames.get(gameId);
+    if (!game || !game.currentQuestion) return;
 
-      const { currentQuestion } = game;
-      const isCorrect = compareAnswers(selected, currentQuestion.correctAnswers);
+    const { currentQuestion } = game;
+    const isCorrect = compareAnswers(selected, currentQuestion.correctAnswers);
 
-      game.answers.push({ studentName, selected, isCorrect });
-      if (isCorrect) {
-        const student = game.students.find((s) => s.name === studentName);
-        if (student) student.correctCount += 1;
+    game.answers.push({ studentName, selected, isCorrect });
+
+    if (isCorrect) {
+      const student =
+        game.students.find((s) => s.name.trim() === studentName.trim()) ||
+        game.students.find((s) => s.id === socket.id);
+
+      if (student) {
+        student.correctCount += 1;
+      } else {
+        console.warn(`Студент ${studentName} не найден в игре ${gameId}`);
       }
+    }
 
-      // сохранить ответ в базу
-      await Game.updateOne(
-        { gameId },
-        {
-          $push: {
-            answers: {
-              studentName,
-              questionId: currentQuestion.id,
-              selected,
-              isCorrect
-            }
-          }
-        }
-      );
+    // сохраняем ответ
+    await Game.updateOne(
+      { gameId },
+      {
+        $push: {
+          answers: {
+            studentName,
+            questionId: currentQuestion.id,
+            selected,
+            isCorrect,
+          },
+        },
+      }
+    );
 
-      io.to(gameId).emit("studentAnswered", { studentName });
-    });
+    io.to(gameId).emit("studentAnswered", { studentName });
+  });
+
 
     // 🔹 Учитель показывает правильный ответ
     socket.on("showAnswer", ({ gameId }) => {
@@ -183,7 +193,6 @@ export const initSocket = (io) => {
 
 // Функция сравнения ответов
 function compareAnswers(selected, correct) {
-  console.log("Сравниваем ответы:", selected, correct);
   if (!Array.isArray(selected) || !Array.isArray(correct)) return false;
   if (selected.length === 0 || correct.length === 0) return false;
 
