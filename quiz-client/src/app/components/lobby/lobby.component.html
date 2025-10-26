@@ -67,17 +67,29 @@
   <ng-template #studentLobby>
     <h3>Вы — студент</h3>
 
+    <p class="student-name">Ваше имя: <b>{{ user?.fullName }}</b></p>
+
     <div *ngIf="!currentQuestion && !gameEnded">
       <p>Ожидайте начала игры...</p>
     </div>
 
     <div *ngIf="currentQuestion && !gameEnded">
       <h4>{{ currentQuestion.text }}</h4>
-      <div class="answers">
+      <!-- <div class="answers">
         <button
           *ngFor="let opt of currentQuestion.options"
           (click)="chooseAnswer(opt)"
           [disabled]="answersReceived.includes(user.fullName)">
+          {{ opt }}
+        </button>
+      </div> -->
+      <div class="answers">
+        <button
+          *ngFor="let opt of currentQuestion.options"
+          (click)="chooseAnswer(opt)"
+          [disabled]="answersReceived.includes(user.fullName)"
+          [class.selected]="selectedAnswer === opt"
+          [class.correct]="correctAnswers.includes(opt)">
           {{ opt }}
         </button>
       </div>

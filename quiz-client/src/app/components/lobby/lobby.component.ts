@@ -28,6 +28,7 @@ export class LobbyComponent implements OnInit {
     results: any[] = [];
 
     loadingQuestions = false;
+    selectedAnswer: string | null = null;
 
     // Таймер
     timer: number = 90; // 1 мин 30 сек
@@ -177,6 +178,7 @@ export class LobbyComponent implements OnInit {
     /** Студент выбирает ответ */
     chooseAnswer(opt: string) {
         if (!this.currentQuestion || this.isAnsweringBlocked) return;
+        this.selectedAnswer = opt;
         this.quizSocket.sendStudentAnswer(this.gameId, this.user.fullName, [opt]);
         this.answersReceived.push(this.user.fullName);
     }
