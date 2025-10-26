@@ -15,6 +15,9 @@ export class LobbyComponent implements OnInit {
     user: any;
     isTeacher = false;
 
+    groupGameId!: string;
+    filteredQuestions: any[] = [];
+
     questions: any[] = [];
     currentQuestionIndex = 0;
     currentQuestion: any = null;
@@ -25,6 +28,14 @@ export class LobbyComponent implements OnInit {
     results: any[] = [];
 
     loadingQuestions = false;
+    selectedAnswer: string | null = null;
+
+    // Таймер
+    timer: number = 90; // 1 мин 30 сек
+    timerInterval: any;
+    showTimer: boolean = false;
+    isAnsweringBlocked: boolean = false;
+    timerProgress: number = 100; // процент заполнения круга (100% = полный)
 
     constructor(
         private route: ActivatedRoute,
@@ -66,10 +77,22 @@ export class LobbyComponent implements OnInit {
         this.gameEnded = true;
         });
 
-        // 🔹 Если преподаватель — загружаем банк вопросов
-        if (this.isTeacher) {
+        // получаем имя из query параметров
+        this.route.queryParamMap.subscribe(params => {
+            const nameFromParams = params.get('name');
+            if (nameFromParams) {
+            this.user.fullName = nameFromParams;
+            localStorage.setItem("user", JSON.stringify(this.user)); // сохраняем для использования
+            this.quizSocket.joinGame(this.gameId, nameFromParams);
+            }
+
+            // если преподаватель — загружаем вопросы
+            if (this.isTeacher) {
+            this.groupGameId = params.get('groupGameId')!;
+            console.log('Получен groupGameId:', this.groupGameId);
             this.loadQuestions();
-        }
+            }
+        });
     }
 
     /** Загрузка всех вопросов */
@@ -78,6 +101,8 @@ export class LobbyComponent implements OnInit {
         this.questionService.allQuestion().subscribe({
             next: (data) => {
                 this.questions = data;
+                this.filteredQuestions = data.filter(q => q.gameGroupId === this.groupGameId);
+                console.log('Отфильтрованные вопросы:', this.filteredQuestions);
                 this.loadingQuestions = false;
             },
             error: () => {
@@ -88,11 +113,46 @@ export class LobbyComponent implements OnInit {
 
     /** Преподаватель начинает игру с выбранного вопроса */
     startQuestion() {
-        if (this.questions.length === 0) return;
+        if (this.filteredQuestions.length === 0) return;
         this.currentQuestionIndex = 0;
-        const question = this.questions[this.currentQuestionIndex];
+        const question = this.filteredQuestions[this.currentQuestionIndex];
         this.quizSocket.startQuestion(this.gameId, question._id);
+
+        // запускаем таймер
+        // this.startTimer();
     }
+
+    startTimer() {
+        this.showTimer = true;
+        this.timer = 90; // 1 минута 30 секунд
+        this.timerProgress = 100;
+        this.isAnsweringBlocked = false;
+
+        clearInterval(this.timerInterval);
+
+        const totalTime = 90;
+        this.timerInterval = setInterval(() => {
+            this.timer--;
+            this.timerProgress = (this.timer / totalTime) * 100;
+
+            // Когда время истекло — блокируем ответы
+            if (this.timer <= 0) {
+            clearInterval(this.timerInterval);
+            this.isAnsweringBlocked = true;
+
+            // Через 10 секунд показываем ответ
+            setTimeout(() => {
+                this.showAnswer();
+
+                // Через ещё 20 секунд — следующий вопрос
+                setTimeout(() => {
+                this.nextQuestion();
+                }, 20000);
+            }, 10000);
+            }
+        }, 1000);
+    }
+
 
     /** Преподаватель показывает правильный ответ */
     showAnswer() {
@@ -101,12 +161,12 @@ export class LobbyComponent implements OnInit {
 
     /** Переход к следующему вопросу */
     nextQuestion() {
-        if (this.currentQuestionIndex < this.questions.length - 1) {
-        this.currentQuestionIndex++;
-        const question = this.questions[this.currentQuestionIndex];
-        this.quizSocket.nextQuestion(this.gameId, question._id);
+        if (this.currentQuestionIndex < this.filteredQuestions.length - 1) {
+            this.currentQuestionIndex++;
+            const question = this.filteredQuestions[this.currentQuestionIndex];
+            this.quizSocket.nextQuestion(this.gameId, question._id);
         } else {
-        alert("Это был последний вопрос.");
+            alert("Это был последний вопрос.");
         }
     }
 
@@ -117,7 +177,8 @@ export class LobbyComponent implements OnInit {
 
     /** Студент выбирает ответ */
     chooseAnswer(opt: string) {
-        if (!this.currentQuestion) return;
+        if (!this.currentQuestion || this.isAnsweringBlocked) return;
+        this.selectedAnswer = opt;
         this.quizSocket.sendStudentAnswer(this.gameId, this.user.fullName, [opt]);
         this.answersReceived.push(this.user.fullName);
     }

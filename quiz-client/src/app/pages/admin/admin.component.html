@@ -34,6 +34,16 @@
         </div>
       </div>
 
+       <div>
+        <label>Вид игры:</label>
+        <select formControlName="gameGroupId">
+          <option value="" disabled selected>Выберите вид игры</option>
+          <option *ngFor="let group of groupGames" [value]="group._id">
+            {{ group.name }}
+          </option>
+        </select>
+      </div>
+
       <div *ngIf="questionForm.get('type')?.value !== 'open'" class="options-block">
         <h3>Варианты ответов</h3>
         <div class="option" *ngFor="let opt of options.controls; let i = index">

@@ -14,6 +14,7 @@ const questionSchema = new mongoose.Schema({
   type: { type: String, enum: ["single", "multiple", "open"], default: "open" },
   options: [String], // варианты ответа (для single/multiple)
   correctAnswers: [String], // массив с правильными ответами (очищенные от звёздочек)
+  gameGroupId: { type: mongoose.Schema.Types.ObjectId, ref: "GroupGame"}
 });
 
 // Хук для автоматического определения correctAnswers

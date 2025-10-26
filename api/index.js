@@ -8,6 +8,7 @@ import { Server } from "socket.io";
 import { initSocket } from "./socket/socketHandler.js";
 import answerRouter from "./routes/answer.js";
 import authRouter from "./routes/auth.js";
+import groupGameRouter from "./routes/gameGroup.js"
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/api/question", questionRouter);
 app.use("/api/answer", answerRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/groupgame", groupGameRouter);
 
 let db = 'mongodb+srv://vadlensafin:V130302Safin@quizcluster.tb0k5it.mongodb.net/'
 
@@ -38,7 +40,7 @@ const io = new Server(server, {
 initSocket(io);
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || '192.168.0.102';
+const HOST = process.env.HOST || '192.168.1.2';
 server.listen(PORT, HOST, () => {
   console.log(`Сервер запущен: http://${HOST}:${PORT}`);
 });
