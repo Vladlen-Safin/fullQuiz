@@ -155,11 +155,11 @@
         <div *ngIf="!loadingQuestions; else loadingBlock">
           <label for="questionSelect">Выберите вопрос:</label>
           <select id="questionSelect" [(ngModel)]="currentQuestionIndex">
-            <option *ngFor="let q of questions; let i = index" [value]="i">
+            <option *ngFor="let q of filteredQuestions; let i = index" [value]="i">
               {{ q.text }}
             </option>
           </select>
-          <button (click)="startQuestion()" [disabled]="questions.length === 0">Начать игру</button>
+          <button (click)="startQuestion()" [disabled]="filteredQuestions.length === 0">Начать игру</button>
         </div>
         <ng-template #loadingBlock>
           <p>Загрузка вопросов...</p>

@@ -1,5 +1,21 @@
 <div class="create-game-container">
   <h2>Создание новой игры</h2>
+
+  <div class="form-group">
+    <label for="groupGame">Выберите вид игры:</label>
+    <select
+      id="groupGame"
+      [(ngModel)]="selectedGroupGameId"
+      name="groupGame"
+      required
+    >
+      <option value="" disabled selected>-- Выберите вид игры --</option>
+      <option *ngFor="let group of groupGames" [value]="group._id">
+        {{ group.name }}
+      </option>
+    </select>
+  </div>
+
   <button (click)="createGame()">Создать игру</button>
 
   <div *ngIf="gameId">

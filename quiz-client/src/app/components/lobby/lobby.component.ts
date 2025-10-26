@@ -15,6 +15,9 @@ export class LobbyComponent implements OnInit {
     user: any;
     isTeacher = false;
 
+    groupGameId!: string;
+    filteredQuestions: any[] = [];
+
     questions: any[] = [];
     currentQuestionIndex = 0;
     currentQuestion: any = null;
@@ -68,7 +71,14 @@ export class LobbyComponent implements OnInit {
 
         // 🔹 Если преподаватель — загружаем банк вопросов
         if (this.isTeacher) {
-            this.loadQuestions();
+            // this.loadQuestions();
+            this.route.queryParamMap.subscribe(params => {
+                this.groupGameId = params.get('groupGameId')!;
+                console.log('Получен groupGameId:', this.groupGameId);
+
+                // загружаем вопросы и фильтруем
+                this.loadQuestions();
+            });
         }
     }
 
@@ -78,6 +88,8 @@ export class LobbyComponent implements OnInit {
         this.questionService.allQuestion().subscribe({
             next: (data) => {
                 this.questions = data;
+                this.filteredQuestions = data.filter(q => q.gameGroupId === this.groupGameId);
+                console.log('Отфильтрованные вопросы:', this.filteredQuestions);
                 this.loadingQuestions = false;
             },
             error: () => {
@@ -88,9 +100,9 @@ export class LobbyComponent implements OnInit {
 
     /** Преподаватель начинает игру с выбранного вопроса */
     startQuestion() {
-        if (this.questions.length === 0) return;
+        if (this.filteredQuestions.length === 0) return;
         this.currentQuestionIndex = 0;
-        const question = this.questions[this.currentQuestionIndex];
+        const question = this.filteredQuestions[this.currentQuestionIndex];
         this.quizSocket.startQuestion(this.gameId, question._id);
     }
 
@@ -101,9 +113,9 @@ export class LobbyComponent implements OnInit {
 
     /** Переход к следующему вопросу */
     nextQuestion() {
-        if (this.currentQuestionIndex < this.questions.length - 1) {
+        if (this.currentQuestionIndex < this.filteredQuestions.length - 1) {
         this.currentQuestionIndex++;
-        const question = this.questions[this.currentQuestionIndex];
+        const question = this.filteredQuestions[this.currentQuestionIndex];
         this.quizSocket.nextQuestion(this.gameId, question._id);
         } else {
         alert("Это был последний вопрос.");

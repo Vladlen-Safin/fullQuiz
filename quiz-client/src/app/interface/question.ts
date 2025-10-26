@@ -3,4 +3,5 @@ export interface IQuestion {
     type: 'single' | 'multiple' | 'open';
     options?: string[];
     correctAnswers: string[] | string;
+    gameGroupId: string;
 }

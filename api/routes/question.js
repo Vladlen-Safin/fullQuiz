@@ -8,11 +8,11 @@ const questionRouter = express.Router();
 // Добавить вопрос
 questionRouter.post("/create", authMiddleware, roleMiddleware(["teacher", "admin"]), async (req, res) => {
   try {
-    const { text, type, options } = req.body;
-    if (!text || !type || !options) {
+    const { text, type, options, gameGroupId } = req.body;
+    if (!text || !type || !options || !gameGroupId) {
       return res.status(400).json({status: 'warning', message: "Текст, ответы и тип вопроса обязательны"});
     }
-    const newQuestion = new Question({ text, type, options });
+    const newQuestion = new Question({ text, type, options, gameGroupId });
     await newQuestion.save();
     return res.status(200).json(newQuestion);
   } catch (error) {
@@ -24,13 +24,13 @@ questionRouter.post("/create", authMiddleware, roleMiddleware(["teacher", "admin
 // Изменить вопрос
 questionRouter.put("/:id", authMiddleware, roleMiddleware(["teacher", "admin"]), async (req, res) => {
   try {
-    const { text, type, options } = req.body;
-    if (!text || !type || !options) {
+    const { text, type, options, gameGroupId } = req.body;
+    if (!text || !type || !options || !gameGroupId) {
       return res.status(400).json({status: 'warning', message: "Текст, ответы и тип вопроса обязательны"});
     }
     const updatedQuestion = await Question.findByIdAndUpdate(
       req.params.id,
-      { text, type, options },
+      { text, type, options, gameGroupId },
       { new: true, runValidators: true }
     );
     if (!updatedQuestion) {

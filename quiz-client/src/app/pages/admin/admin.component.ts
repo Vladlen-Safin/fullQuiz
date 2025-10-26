@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
 import { IQuestion } from '../../interface/question';
+import { GroupGameService } from 'src/app/services/group-game/group-game.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,6 +14,7 @@ export class AdminComponent {
   title: string = 'Админ панель';
 
   questionForm: FormGroup;
+  groupGames: any[] = []; // список видов игр
 
   get options(): FormArray {
     return this.questionForm.get('options') as FormArray;
@@ -21,11 +23,13 @@ export class AdminComponent {
   constructor(
     private fb: FormBuilder,
     private questionService: QuestionService,
+    private groupGameService: GroupGameService,
     private router: Router
   ) {
     this.questionForm = this.fb.group({
       text: ['', Validators.required],
       type: ['single', Validators.required],
+      gameGroupId: ['', Validators.required], 
       options: this.fb.array([])
     });
 
@@ -37,6 +41,14 @@ export class AdminComponent {
       } else {
         if (this.options.length === 0) this.addOption();
       }
+    });
+
+    // загружаем все виды игр
+    this.groupGameService.getAllGroupGame().subscribe({
+      next: (data) => {
+        this.groupGames = data;
+      },
+      error: (error) => console.log("Ошибка при загрузке видов игр:", error)
     });
   }
 
@@ -51,23 +63,6 @@ export class AdminComponent {
   removeOption(index: number): void {
     this.options.removeAt(index);
   }
-
-  // toggleCorrectAnswer(option: string): void {
-  //   const type = this.questionForm.get('type')?.value;
-  //   let correct = this.questionForm.get('correctAnswers')?.value || [];
-
-  //   if (type === 'single') {
-  //     correct = [option];
-  //   } else if (type === 'multiple') {
-  //     if (correct.includes(option)) {
-  //       correct = correct.filter((a: string) => a !== option);
-  //     } else {
-  //       correct.push(option);
-  //     }
-  //   }
-
-  //   this.questionForm.get('correctAnswers')?.setValue(correct);
-  // }
 
   toggleCorrectAnswer(index: number): void {
     const type = this.questionForm.get('type')?.value;

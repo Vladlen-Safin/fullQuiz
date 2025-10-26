@@ -14,7 +14,8 @@ const gameSchema = new mongoose.Schema({
       questionId: { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
       text: String,
       options: [String],
-      correctAnswers: [String]
+      correctAnswers: [String],
+      gameGroupId: { type: mongoose.Schema.Types.ObjectId, ref: "GroupGame"}
     }
   ],
   answers: [
