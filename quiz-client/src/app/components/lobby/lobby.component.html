@@ -1,0 +1,219 @@
+<!-- <div class="lobby-container">
+  <h2>Игра: {{ gameId }}</h2>
+  <h3>Подключённые студенты:</h3>
+
+  <ul>
+    <li *ngFor="let s of students"> {{ s.name }}</li>
+  </ul>
+</div> -->
+
+<!-- <div class="lobby-container">
+  <h2>Игра: {{ gameId }}</h2>
+
+  <div *ngIf="isTeacher; else studentLobby">
+    <h3>Вы — преподаватель (ведущий)</h3>
+    <p>Ожидаем подключение студентов...</p>
+
+    <ul>
+      <li *ngFor="let s of students">{{ s.name }}</li>
+    </ul>
+  </div>
+
+  <ng-template #studentLobby>
+    <h3>Вы — студент</h3>
+    <p>Ожидайте начала игры от преподавателя</p>
+
+    <h3>Подключённые студенты:</h3>
+    <ul>
+      <li *ngFor="let s of students">{{ s.name }}</li>
+    </ul>
+  </ng-template>
+</div> -->
+
+<!-- <div class="lobby-container">
+  <h2>Игра: {{ gameId }}</h2>
+
+  <div *ngIf="isTeacher; else studentLobby">
+    <h3>Вы — преподаватель (ведущий)</h3>
+
+    <h4>Подключённые студенты:</h4>
+    <ul>
+      <li *ngFor="let s of students">
+        {{ s.name }}
+        <span *ngIf="answersReceived.includes(s.name)" class="answered">(ответил)</span>
+      </li>
+    </ul>
+
+    <div *ngIf="!gameEnded; else gameResults">
+      <div *ngIf="currentQuestion; else noQuestion">
+        <h3>Текущий вопрос:</h3>
+        <p>{{ currentQuestion.text }}</p>
+        <ul>
+          <li *ngFor="let opt of currentQuestion.options"
+              [class.correct]="correctAnswers.includes(opt)">
+            {{ opt }}
+          </li>
+        </ul>
+
+        <button (click)="showAnswer()">Показать ответ</button>
+        <button (click)="nextQuestion()">Следующий вопрос</button>
+        <button (click)="endGame()">Завершить игру</button>
+      </div>
+
+      <ng-template #noQuestion>
+        <button (click)="startQuestion()" [disabled]="questions.length === 0">
+          Начать первый вопрос
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+  <ng-template #studentLobby>
+    <h3>Вы — студент</h3>
+
+    <div *ngIf="!currentQuestion && !gameEnded">
+      <p>Ожидайте начала игры от преподавателя...</p>
+    </div>
+
+    <div *ngIf="currentQuestion && !gameEnded">
+      <h4>{{ currentQuestion.text }}</h4>
+
+      <button
+        *ngFor="let opt of currentQuestion.options"
+        (click)="chooseAnswer(opt)"
+        [disabled]="answersReceived.includes(user.fullName)"
+      >
+        {{ opt }}
+      </button>
+
+      <div *ngIf="correctAnswers.length > 0">
+        <p>Правильный ответ: {{ correctAnswers.join(', ') }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="gameEnded">
+      <h3>Игра завершена!</h3>
+      <p>Ожидайте результатов.</p>
+    </div>
+  </ng-template>
+
+  <ng-template #gameResults>
+    <h2>Результаты игры</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Студент</th>
+          <th>Правильных ответов</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of results">
+          <td>{{ r.name }}</td>
+          <td>{{ r.correctCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>
+ -->
+
+
+ <div class="lobby-container">
+  <h2>Игра: {{ gameId }}</h2>
+
+  <!-- === Преподаватель === -->
+  <div *ngIf="isTeacher; else studentLobby">
+    <h3>Вы — преподаватель</h3>
+
+    <div *ngIf="!gameEnded; else gameResults">
+      <h4>Подключённые студенты:</h4>
+      <ul>
+        <li *ngFor="let s of students">
+          {{ s.name }}
+          <span *ngIf="answersReceived.includes(s.name)" class="answered">(ответил)</span>
+        </li>
+      </ul>
+
+      <!-- Выбор и запуск вопроса -->
+      <div *ngIf="currentQuestion; else chooseQuestion">
+        <h3>Текущий вопрос:</h3>
+        <p>{{ currentQuestion.text }}</p>
+
+        <ul>
+          <li *ngFor="let opt of currentQuestion.options"
+              [class.correct]="correctAnswers.includes(opt)">
+            {{ opt }}
+          </li>
+        </ul>
+
+        <button (click)="showAnswer()">Показать ответ</button>
+        <button (click)="nextQuestion()">Следующий вопрос</button>
+        <button class="danger" (click)="endGame()">Завершить игру</button>
+      </div>
+
+      <ng-template #chooseQuestion>
+        <div *ngIf="!loadingQuestions; else loadingBlock">
+          <label for="questionSelect">Выберите вопрос:</label>
+          <select id="questionSelect" [(ngModel)]="currentQuestionIndex">
+            <option *ngFor="let q of questions; let i = index" [value]="i">
+              {{ q.text }}
+            </option>
+          </select>
+          <button (click)="startQuestion()" [disabled]="questions.length === 0">Начать игру</button>
+        </div>
+        <ng-template #loadingBlock>
+          <p>Загрузка вопросов...</p>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- === Студент === -->
+  <ng-template #studentLobby>
+    <h3>Вы — студент</h3>
+
+    <div *ngIf="!currentQuestion && !gameEnded">
+      <p>Ожидайте начала игры...</p>
+    </div>
+
+    <div *ngIf="currentQuestion && !gameEnded">
+      <h4>{{ currentQuestion.text }}</h4>
+      <div class="answers">
+        <button
+          *ngFor="let opt of currentQuestion.options"
+          (click)="chooseAnswer(opt)"
+          [disabled]="answersReceived.includes(user.fullName)">
+          {{ opt }}
+        </button>
+      </div>
+
+      <div *ngIf="correctAnswers.length > 0">
+        <p>Правильный ответ: <b>{{ correctAnswers.join(', ') }}</b></p>
+      </div>
+    </div>
+
+    <div *ngIf="gameEnded">
+      <h3>Игра завершена!</h3>
+      <p>Ожидайте итогов от преподавателя.</p>
+    </div>
+  </ng-template>
+
+  <!-- === Результаты === -->
+  <ng-template #gameResults>
+    <h2>Результаты</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ФИО</th>
+          <th>Правильных ответов</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of results">
+          <td>{{ r.name }}</td>
+          <td>{{ r.correctCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

@@ -1,0 +1,35 @@
+<div class="register-container">
+  <h2>Регистрация</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="fullName">ФИО:</label>
+    <input id="fullName" type="text" formControlName="fullName" placeholder="Введите ваше ФИО">
+    <div class="error" *ngIf="registerForm.get('fullName')?.touched && registerForm.get('fullName')?.invalid">
+      Укажите ФИО (не менее 3 символов)
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" placeholder="Введите email">
+    <div class="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+      Некорректный email
+    </div>
+
+    <label for="password">Пароль:</label>
+    <input id="password" type="password" formControlName="password" placeholder="Введите пароль">
+    <div class="error" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+      Минимум 6 символов
+    </div>
+
+    <label for="confirmPassword">Подтвердите пароль:</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Повторите пароль">
+    <div class="error" *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched">
+      Пароли не совпадают
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+  </form>
+
+  <p class="link">Уже есть аккаунт?
+    <a (click)="moveToLogin()">Войти</a>
+  </p>
+</div>

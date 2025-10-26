@@ -1,0 +1,65 @@
+<div class="admin-panel">
+  <header class="header">
+    <h1>{{ title }}</h1>
+    <p>Создавайте и управляйте вопросами для квиза</p>
+  </header>
+
+  <section class="form-card">
+    <form [formGroup]="questionForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="text">Текст вопроса</label>
+        <textarea
+          id="text"
+          rows="3"
+          formControlName="text"
+          placeholder="Введите вопрос..."
+        ></textarea>
+        <div class="error" *ngIf="questionForm.get('text')?.invalid && questionForm.get('text')?.touched">
+          Укажите текст вопроса
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Тип вопроса</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" formControlName="type" value="single" /> Один ответ
+          </label>
+          <label>
+            <input type="radio" formControlName="type" value="multiple" /> Несколько ответов
+          </label>
+          <label>
+            <input type="radio" formControlName="type" value="open" /> Открытый вопрос
+          </label>
+        </div>
+      </div>
+
+      <div *ngIf="questionForm.get('type')?.value !== 'open'" class="options-block">
+        <h3>Варианты ответов</h3>
+        <div class="option" *ngFor="let opt of options.controls; let i = index">
+            <input
+                type="text"
+                [formControl]="getOptionControl(i)"
+                placeholder="Введите вариант ответа"
+            />
+          <button type="button" class="btn-remove" (click)="removeOption(i)">×</button>
+
+          <label class="correct-label">
+            <input
+                type="checkbox"
+                [checked]="getOptionControl(i).value.startsWith('*')"
+                (change)="toggleCorrectAnswer(i)"
+            />
+            Правильный
+            </label>
+        </div>
+
+        <button type="button" class="btn-add" (click)="addOption()">+ Добавить вариант</button>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary">💾 Сохранить вопрос</button>
+      </div>
+    </form>
+  </section>
+</div>

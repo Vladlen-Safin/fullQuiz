@@ -1,0 +1,10 @@
+<div class="create-game-container">
+  <h2>Создание новой игры</h2>
+  <button (click)="createGame()">Создать игру</button>
+
+  <div *ngIf="gameId">
+    <p> Игра создана!</p>
+    <p><strong>ID игры:</strong> {{ gameId }}</p>
+    <p>Передайте этот ID студентам для подключения</p>
+  </div>
+</div>

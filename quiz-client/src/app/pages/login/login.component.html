@@ -1,0 +1,50 @@
+
+<div class="login-container">
+  <h2>Авторизация</h2>
+  <h2>{{title}}</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Введите email"
+        class="form-control"
+      />
+      <div class="error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <small *ngIf="email?.errors?.['required']">Введите email</small>
+        <small *ngIf="email?.errors?.['email']">Неверный формат email</small>
+      </div>
+    </div>
+
+    <!-- Пароль -->
+    <div class="form-group">
+      <label for="password">Пароль:</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Введите пароль"
+        class="form-control"
+      />
+      <div class="error" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <small *ngIf="password?.errors?.['required']">Введите пароль</small>
+        <small *ngIf="password?.errors?.['minlength']">Минимум 6 символов</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="btn-primary">
+      Войти
+    </button>
+  </form>
+
+  <p class="register-link">
+    Нет аккаунта?
+    <button type="button" class="link" (click)="moveToRegister()">Зарегистрироваться</button>
+  </p>
+  <button (click)="moveToConnectGame()"> Подключиться к игре</button>
+</div>
+

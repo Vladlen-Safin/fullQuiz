@@ -1,0 +1,2 @@
+MONGO_URI=mongodb+srv://vadlensafin:V130302Safin@quizcluster.tb0k5it.mongodb.net/
+PORT=3000

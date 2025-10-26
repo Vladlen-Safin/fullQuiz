@@ -1,0 +1,30 @@
+.lobby-container {
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.answered {
+  color: green;
+  margin-left: 5px;
+}
+
+.correct {
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 4px;
+  padding: 3px 6px;
+}
+
+button {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+button.danger {
+  background-color: #dc3545;
+  color: #fff;
+}

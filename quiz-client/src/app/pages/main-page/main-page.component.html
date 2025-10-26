@@ -1,0 +1,11 @@
+<p>main-page works!</p>
+<div class="home-container">
+  <h1>Добро пожаловать, {{ user?.fullName || user?.username }}!</h1>
+  <p>Email: {{ user?.email }}</p>
+
+  <button (click)="moveToCreateQuiz()">Создать игру</button>
+
+
+  <button (click)="logout()">Выйти</button>
+  <button (click)="moveToAdminPanel()">Админ панель</button>
+</div>
