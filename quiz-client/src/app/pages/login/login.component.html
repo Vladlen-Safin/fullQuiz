@@ -1,7 +1,8 @@
 <div class="pageimage">
-<div class="login-container">
+ <div class="login-container">
   <h2>Авторизация</h2>
-  <h2>{{title}}</h2>
+  
+  <h2 class="Quiz">{{title}}</h2>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
     <!-- Email -->
@@ -35,26 +36,29 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid" class="btn-primary">
+    <button type="submit" class="pixel" [disabled]="loginForm.invalid">
       Войти
     </button>
+    
   </form>
 
   <p class="register-link">
     Нет аккаунта?
     <button type="button" class="link" (click)="moveToRegister()">Зарегистрироваться</button>
   </p>
-     <!-- === Цыпленок и кнопка === -->
-     <div class="sipa">
+
+    <!-- === Кнопка с котиком === -->
+    <div class="sipa">
       <div class="button-wrapper">
-        <button type="button" class="link" (click)="moveToConnectGame()">
-          Подключиться к игре
-          <div class="chicken">
-            <app-sipa-icon></app-sipa-icon>
-          </div>
-        </button>
+        <button type="button" class="link" (click)="moveToConnectGame()">Подключиться к игре</button>
+        
+        <!-- Котик должен быть сразу внутри wrapper, а не внутри кнопки -->
+        <div class="kitty">
+   <app-sipa-icon></app-sipa-icon>
+         
+        </div>
       </div>
     </div>
     
-
 </div>
+

@@ -3,83 +3,57 @@ import { Component } from "@angular/core";
 @Component({
     selector: 'app-sipa-icon',
     template: `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 260 290" width="110" height="200" role="img" aria-label="Милый анимированный цыплёнок с крылышками (разнесённые)">
-  <!-- тело -->
-  <path d="M100 40 
-           C140 40, 170 90, 170 130
-           C170 180, 140 210, 100 210
-           C60 210, 30 180, 30 130
-           C30 90, 60 40, 100 40 Z"
-        fill="#FFD500"
-        stroke="#000"
-        stroke-width="3.5"
-        stroke-linecap="round"
-        stroke-dasharray="420 20"
-        stroke-dashoffset="15"/>
+      <svg width="64" height="64" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Тело -->
+  <rect x="8" y="16" width="16" height="8" fill="#FFFFFF"/> <!-- тёмный корпус -->
 
-  <!-- левое крыло (сдвинуто левее, не увеличено) -->
-  <g id="wing-left">
-    <path d="M10 120 
-             C-10 115, -15 95, 15 90
-             C30 88, 45 95, 50 110
-             C45 118, 30 122, 10 120 Z"
-          fill="#FFD500"
-          stroke="#000"
-          stroke-width="3.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-    <animateTransform attributeName="transform" type="rotate"
-      values="0 40 115; -20 40 115; 0 40 115"
-      dur="1.3s" repeatCount="indefinite"/>
+  <!-- Лапки -->
+  <rect x="10" y="24" width="3" height="2" fill="#FFFFFF"/>
+  <rect x="19" y="24" width="3" height="2" fill="#FFFFFF"/>
+
+  <!-- Голова -->
+  <rect x="10" y="8" width="12" height="8" fill="#FFFFFF"/>
+
+  <!-- Уши цвета тела -->
+  <rect x="10" y="6" width="4" height="2" fill="#FFFFFF"/>
+  <rect x="18" y="6" width="4" height="2" fill="#FFFFFF"/>
+
+  <!-- Глаза с подмигиванием -->
+  <rect x="12" y="10" width="2" height="2" fill="#00FFFF">
+    <animate attributeName="fill" values="#00FFFF;#1A1A2E;#00FFFF" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="18" y="10" width="2" height="2" fill="#00FFFF">
+    <animate attributeName="fill" values="#00FFFF;#1A1A2E;#00FFFF" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Носик белый -->
+  <rect x="15" y="12" width="2" height="1" fill="#000000"/>
+
+  <!-- Щёчки -->
+  <rect x="11" y="12" width="1" height="1" fill="#FF55FF"/>
+  <rect x="20" y="12" width="1" height="1" fill="#FF55FF"/>
+
+  <!-- Усы -->
+  <rect x="9" y="12" width="2" height="0.5" fill="#00FFFF"/>
+  <rect x="9" y="13" width="2" height="0.5" fill="#00FFFF"/>
+  <rect x="9" y="14" width="2" height="0.5" fill="#00FFFF"/>
+  <rect x="21" y="12" width="2" height="0.5" fill="#00FFFF"/>
+  <rect x="21" y="13" width="2" height="0.5" fill="#00FFFF"/>
+  <rect x="21" y="14" width="2" height="0.5" fill="#00FFFF"/>
+
+  <!-- Хвост в форме буквы "Г" перевёрнутый, сдвинут вправо -->
+  <g transform="scale(1,-1) translate(2,-40)">
+    <rect x="22" y="18" width="2" height="6" fill="#FF00FF"/>
+    <rect x="22" y="22" width="4" height="2" fill="#FF00FF"/>
   </g>
 
-  <!-- правое крыло (сдвинуто правее, не увеличено) -->
-  <g id="wing-right">
-    <path d="M190 120 
-             C210 115, 215 95, 185 90
-             C170 88, 155 95, 150 110
-             C155 118, 170 122, 190 120 Z"
-          fill="#FFD500"
-          stroke="#000"
-          stroke-width="3.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-    <animateTransform attributeName="transform" type="rotate"
-      values="0 160 115; 20 160 115; 0 160 115"
-      dur="1.3s" repeatCount="indefinite"/>
-  </g>
-
-  <!-- милые глаза -->
-  <g id="cute-eyes">
-    <circle cx="80" cy="95" r="10" fill="white" stroke="black" stroke-width="2.5"/>
-    <circle cx="120" cy="95" r="10" fill="white" stroke="black" stroke-width="2.5"/>
-    <circle cx="80" cy="95" r="4" fill="black"/>
-    <circle cx="120" cy="95" r="4" fill="black"/>
-    <circle cx="78" cy="93" r="1.8" fill="white"/>
-    <circle cx="118" cy="93" r="1.8" fill="white"/>
-  </g>
-
-  <!-- клюв -->
-  <polygon points="100,110 90,120 110,120" fill="#FF9500" stroke="black" stroke-width="1.8"/>
-
-  <!-- лапки-трезубцы -->
-  <g stroke="black" stroke-width="3.5" stroke-linecap="round">
-    <path d="M80 185 L80 210" />
-    <path d="M80 210 L70 225" />
-    <path d="M80 210 L80 225" />
-    <path d="M80 210 L90 225" />
-    <path d="M120 185 L120 210" />
-    <path d="M120 210 L110 225" />
-    <path d="M120 210 L120 225" />
-    <path d="M120 210 L130 225" />
-  </g>
-
-  <!-- перышки сверху -->
-  <g stroke="black" stroke-width="2.5" stroke-linecap="round">
-    <path d="M95 45 L90 35" />
-    <path d="M100 45 L100 33" />
-    <path d="M105 45 L110 35" />
-  </g>
+  <!-- Неоновые полоски на теле с мерцанием -->
+  <rect x="10" y="18" width="12" height="1" fill="#00FFFF">
+    <animate attributeName="fill" values="#00FFFF;#00FFAA;#00FFFF" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="10" y="20" width="12" height="1" fill="#FF00FF">
+    <animate attributeName="fill" values="#FF00FF;#FF55FF;#FF00FF" dur="1s" repeatCount="indefinite"/>
+  </rect>
 </svg>
 
     `,

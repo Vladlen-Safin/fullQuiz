@@ -1,14 +1,17 @@
-/* Стиль для всей страницы */
+/* === Cyberpunk Pixel Style === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Press Start 2P', monospace; /* пиксельный шрифт */
+  background-color: #0d0d0d24;
+  color: #00fff9;
 }
 
-/* Фон */
+/* Подключаем фон с неоновыми огнями */
 .pageimage {
   display: flex;
   justify-content: flex-start;
@@ -16,33 +19,39 @@ html, body {
   height: 100vh;
   width: 100%;
 
-  background: url("../../../assets/images/download.png");
+  background: url("../../../assets/images/06175133e37d5617854a3eae0921fe48.gif");
   background-size: cover;
   background-position: center;
-  background-attachment: scroll; /* заменено, чтобы не вызывалось прокручивание */
+  background-attachment: scroll;
+  image-rendering: pixelated;
+  filter: brightness(0.8) contrast(1.2) saturate(1.5);
 }
 
 /* Контейнер регистрации */
 .register-container {
+  font-family: 'Press Start 2P', monospace; /* пиксельный шрифт */
+  font-size: 13px;
   width: 50%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.97);
+  background-color: rgba(15, 15, 30, 0.547);
   padding: 3%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px #00fff9, 0 0 60px #ff00f4;
+  text-shadow: 0 0 5px #00fff9;
 }
 
 /* Заголовок */
 .register-container h2 {
   margin-top: 0;
   margin-bottom: 20px;
-  color: #008c94;
+  color: #ff00f4;
   text-align: center;
   font-weight: 700;
-  font-size: 26px;
+  text-shadow: 0 0 10px #ff00f4, 0 0 20px #00fff9;
+  letter-spacing: 1px;
 }
 
 /* Форма */
@@ -52,67 +61,76 @@ html, body {
   gap: 14px;
 }
 
+/* Метки */
 label {
-  font-weight: 500;
-  margin-bottom: 4px;
-  color: #333;
+  font-weight: 600;
+  color: #00fff9;
+  text-shadow: 0 0 3px #00fff9;
 }
 
+/* Поля ввода */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #1a1a2e;
+  border: 2px solid #ff00f4;
+  color: #00fff9;
+  font-family: 'Press Start 2P', monospace;
+  border-radius: 0;
+  box-shadow: inset 0 0 10px #ff00f4, 0 0 10px #00fff9;
+  transition: all 0.3s ease;
 }
 
 input:focus {
-  border-color: #00b4b6;
-  box-shadow: 0 0 6px rgba(0, 180, 182, 0.4);
   outline: none;
+  border-color: #00fff9;
+  box-shadow: 0 0 15px #00fff9, 0 0 30px #ff00f4;
 }
 
 /* Ошибки */
 .error {
-  color: #e63946;
-  font-size: 12px;
+  color: #ff003c;
+  font-size: 10px;
+  text-shadow: 0 0 5px #ff003c;
 }
 
 /* Кнопка регистрации */
 button[type="submit"] {
   margin-top: 12px;
-  background-color: #00b4b6;
-  color: #fff;
-  border: none;
+  background-color: #ff00f4;
+  color: #ffffff;
+  border: 2px solid #00fff9;
   padding: 12px 20px;
-  border-radius: 8px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px #ff00f4, 0 0 30px #00fff9;
 }
 
 button[type="submit"]:hover {
-  background-color: #01989a;
-  transform: translateY(-2px);
+  background-color: #00fff9;
+  color: #0d0d0d;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00fff9, 0 0 40px #ff00f4;
 }
 
-/* Ссылка "Уже есть аккаунт?" */
+/* Ссылка */
 .link {
   margin-top: 20px;
   text-align: center;
-  color: #333;
+  color: #00fff9;
 }
 
 .link a {
-  color: #00b4b6;
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
+  color: #ff00f4;
+  text-decoration: none;
+  text-shadow: 0 0 10px #ff00f4;
+  transition: all 0.3s;
 }
 
 .link a:hover {
-  color: #01989a;
+  color: #00fff9;
+  text-shadow: 0 0 15px #00fff9;
 }
