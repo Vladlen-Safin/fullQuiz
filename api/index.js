@@ -40,7 +40,7 @@ const io = new Server(server, {
 initSocket(io);
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || '192.168.1.2';
+const HOST = process.env.HOST || '192.168.9.4';
 server.listen(PORT, HOST, () => {
   console.log(`Сервер запущен: http://${HOST}:${PORT}`);
 });
@@ -65,3 +65,8 @@ server.listen(PORT, HOST, () => {
 // История прохождения игр
 
 // Позже - круговые диаграммы по классам 
+
+
+// Повтор вопросв (8) - PIKLM8
+
+// Ошибка инета - Рустам-Вали Хамидий Мухаммадами
