@@ -17,6 +17,10 @@
       <!-- Выбор и запуск вопроса -->
       <div *ngIf="currentQuestion; else chooseQuestion">
         <h3>Текущий вопрос:</h3>
+        <!-- Счётчик вопросов -->
+        <p class="question-counter">
+          Вопрос {{ currentQuestionIndex + 1 }} из {{ filteredQuestions.length }}
+        </p>
         <p>{{ currentQuestion.text }}</p>
 
         <ul>
@@ -74,6 +78,10 @@
     </div>
 
     <div *ngIf="currentQuestion && !gameEnded">
+      <!-- Счётчик вопросов -->
+      <p class="question-counter">
+        Вопрос {{ currentQuestionIndex + 1 }} из {{ filteredQuestions.length }}
+      </p>
       <h4>{{ currentQuestion.text }}</h4>
       <!-- <div class="answers">
         <button
@@ -85,10 +93,9 @@
       </div> -->
       <div class="answers">
         <button
-          *ngFor="let opt of currentQuestion.options"
+          *ngFor="let opt of shuffledOptions"
           (click)="chooseAnswer(opt)"
           [disabled]="answersReceived.includes(user.fullName)"
-          [class.selected]="selectedAnswer === opt"
           [class.correct]="correctAnswers.includes(opt)">
           {{ opt }}
         </button>

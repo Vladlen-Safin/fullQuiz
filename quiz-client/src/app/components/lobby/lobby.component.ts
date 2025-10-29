@@ -22,6 +22,8 @@ export class LobbyComponent implements OnInit {
     currentQuestionIndex = 0;
     currentQuestion: any = null;
 
+    shuffledOptions: string[] = [];
+
     answersReceived: string[] = [];
     correctAnswers: string[] = [];
     gameEnded = false;
@@ -62,6 +64,7 @@ export class LobbyComponent implements OnInit {
         this.currentQuestion = question;
         this.correctAnswers = [];
         this.answersReceived = [];
+        this.setCurrentQuestion(question);
         });
 
         this.quizSocket.onStudentAnswered().subscribe(({ studentName }) => {
@@ -95,20 +98,72 @@ export class LobbyComponent implements OnInit {
         });
     }
 
+    // /** Загрузка всех вопросов */
+    // loadQuestions() {
+    //     this.loadingQuestions = true;
+    //     this.questionService.allQuestion().subscribe({
+    //         next: (data) => {
+    //             this.questions = data;
+    //             this.filteredQuestions = data.filter(q => q.gameGroupId === this.groupGameId);
+    //             console.log('Отфильтрованные вопросы:', this.filteredQuestions);
+    //             this.loadingQuestions = false;
+    //         },
+    //         error: () => {
+    //             this.loadingQuestions = false;
+    //         },
+    //     });
+    // }
+
     /** Загрузка всех вопросов */
     loadQuestions() {
         this.loadingQuestions = true;
+
         this.questionService.allQuestion().subscribe({
             next: (data) => {
                 this.questions = data;
-                this.filteredQuestions = data.filter(q => q.gameGroupId === this.groupGameId);
-                console.log('Отфильтрованные вопросы:', this.filteredQuestions);
+
+                // Фильтрация по выбранной группе
+                const filtered = data.filter(q => q.gameGroupId === this.groupGameId);
+
+                // Перемешивание вопросов (алгоритм Фишера–Йетса)
+                const shuffled = filtered
+                    .map(q => ({ ...q })) // создаём копию
+                    .sort(() => Math.random() - 0.5);
+
+                // Берём только 20 случайных
+                this.filteredQuestions = shuffled.slice(0, 20);
+
+                console.log('Итоговые 20 случайных вопросов:', this.filteredQuestions);
+
                 this.loadingQuestions = false;
             },
-            error: () => {
+            error: (err) => {
+                console.error('Ошибка при загрузке вопросов:', err);
                 this.loadingQuestions = false;
             },
         });
+    }
+
+    /** Когда приходит новый вопрос */
+    setCurrentQuestion(question: any) {
+        this.currentQuestion = question;
+
+        if (!this.isTeacher && question?.options) {
+        // 🔀 Перемешиваем порядок ответов для студентов
+        this.shuffledOptions = this.shuffleArray([...question.options]);
+        } else {
+        // Преподаватель видит оригинал
+        this.shuffledOptions = question?.options || [];
+        }
+    }
+
+    /** Простая функция перемешивания массива (Fisher–Yates) */
+    shuffleArray(arr: any[]): any[] {
+        for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
     }
 
     /** Преподаватель начинает игру с выбранного вопроса */
