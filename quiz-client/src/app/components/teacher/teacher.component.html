@@ -1,0 +1,19 @@
+<h2>Teacher page</h2>
+
+<div *ngIf="!sessionCreated">
+  <button (click)="createRoom()">Создать комнату</button>
+</div>
+
+<div *ngIf="sessionCreated">
+
+  <h3>Комната создана: {{ sessionId }}</h3>
+
+  <h4>Студентов подключено: {{ studentStreams.length }}</h4>
+
+  <div class="video-grid">
+    <div *ngFor="let s of studentStreams" class="student-block">
+      <video [srcObject]="s.stream" autoplay playsinline></video>
+      <p>{{ s.name }} ({{ s.id }})</p>
+    </div>
+  </div>
+</div>

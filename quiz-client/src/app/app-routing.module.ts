@@ -8,6 +8,8 @@ import { CreateGameComponent } from './components/create-game/create-game.compon
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { JoinGameComponent } from './components/join-game/join-game.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { TeacherComponent } from './components/teacher/teacher.component';
+import { StudentComponent } from './components/student/student.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'create-quiz', component: CreateGameComponent, canActivate: [AuthGuard]},
   {path: 'join-game', component: JoinGameComponent},
   {path: 'lobby/:id', component: LobbyComponent},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'teacher', component: TeacherComponent, canActivate: [AuthGuard]},
+  {path: 'student', component: StudentComponent}
 ];
 
 @NgModule({

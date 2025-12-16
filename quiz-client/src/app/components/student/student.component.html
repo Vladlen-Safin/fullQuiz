@@ -1,0 +1,12 @@
+<h2>Страница студента</h2>
+
+<div *ngIf="!connected">
+  <input [(ngModel)]="studentName" placeholder="Введите имя" />
+  <input [(ngModel)]="sessionId" placeholder="Введите ID комнаты" />
+  <button (click)="connectToRoom()">Подключиться</button>
+</div>
+
+<div *ngIf="connected">
+  <h3>Вы подключены к комнате {{ sessionId }}</h3>
+  <!-- <video [srcObject]="stream" autoplay playsinline muted></video> -->
+</div>

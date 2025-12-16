@@ -5,10 +5,14 @@ import dotenv from "dotenv";
 import questionRouter from "./routes/question.js";
 import http from "http";
 import { Server } from "socket.io";
-import { initSocket } from "./socket/socketHandler.js";
+// import { initSocket } from "./socket/socketHandler.js";
+import { initSocket } from "./socket/socketHandlerScreen.js";
 import answerRouter from "./routes/answer.js";
 import authRouter from "./routes/auth.js";
 import groupGameRouter from "./routes/gameGroup.js"
+
+import https from "https";
+import fs from "fs";
 
 dotenv.config();
 const app = express();
@@ -26,7 +30,18 @@ mongoose
     .then((res) => {console.log('Connected to DB')})
     .catch((err) => {console.log(err)});
 
-const server = http.createServer(app);
+// укажи путь к сертификатам
+const keyPath = "./certs/localhost.key";
+const certPath = "./certs/localhost.crt";
+
+const httpsOptions = {
+    key: fs.readFileSync(keyPath),
+    cert: fs.readFileSync(certPath)
+};
+
+
+
+const server = https.createServer(httpsOptions, app);
 
 // создаем socket.io сервер
 const io = new Server(server, {
@@ -40,9 +55,9 @@ const io = new Server(server, {
 initSocket(io);
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || '192.168.9.4';
+const HOST = process.env.HOST || '192.168.34.242';
 server.listen(PORT, HOST, () => {
-  console.log(`Сервер запущен: http://${HOST}:${PORT}`);
+  console.log(`Сервер запущен: https://${HOST}:${PORT}`);
 });
 
 
@@ -70,3 +85,9 @@ server.listen(PORT, HOST, () => {
 // Повтор вопросв (8) - PIKLM8
 
 // Ошибка инета - Рустам-Вали Хамидий Мухаммадами
+
+// Плохой вопрос - 68ff2ae8ed83875332238019
+
+// Сделать игры (5-6 штук)
+
+// РЕЙТИНГ СИСТЕМЫ

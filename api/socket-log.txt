@@ -1,0 +1,191 @@
+[2025-12-03T07:37:02.176Z] Socket connected: WeuczifhQrhIsmw7AAAB
+[2025-12-03T07:37:07.619Z] Socket disconnected: WeuczifhQrhIsmw7AAAB
+[2025-12-03T07:37:08.084Z] Socket connected: zA7Lus8sIKLT_KheAAAD
+[2025-12-03T07:37:11.789Z] Session created: 22igy6 by zA7Lus8sIKLT_KheAAAD
+[2025-12-03T07:37:11.793Z] Socket zA7Lus8sIKLT_KheAAAD joined session 22igy6 as teacher
+[2025-12-03T07:37:25.864Z] Socket connected: F4EnZRajbRZxtWkFAAAF
+[2025-12-03T07:37:25.895Z] JOIN FAILED: session 22igy6 not found
+[2025-12-03T07:42:14.862Z] Socket disconnected: F4EnZRajbRZxtWkFAAAF
+[2025-12-03T07:42:14.944Z] Socket disconnected: zA7Lus8sIKLT_KheAAAD
+[2025-12-03T07:42:14.945Z] Teacher disconnected for session 22igy6
+[2025-12-03T07:42:15.632Z] Socket connected: HirycEBKV3ZhL7YiAAAH
+[2025-12-03T07:43:29.640Z] Socket disconnected: HirycEBKV3ZhL7YiAAAH
+[2025-12-03T07:43:30.527Z] Socket connected: g-8RE9Xlj0wWUr8QAAAJ
+[2025-12-03T07:43:33.139Z] Socket disconnected: g-8RE9Xlj0wWUr8QAAAJ
+[2025-12-03T07:43:34.438Z] Socket connected: ibES_CzWXYJxz1gZAAAL
+[2025-12-03T07:43:40.691Z] Session created: dkvocs by ibES_CzWXYJxz1gZAAAL
+[2025-12-03T07:43:40.694Z] Socket ibES_CzWXYJxz1gZAAAL joined session dkvocs as teacher
+[2025-12-03T07:43:57.242Z] Socket connected: bh45WHMcqcw8pu2EAAAN
+[2025-12-03T07:43:57.277Z] JOIN FAILED: session dkvocs not found
+[2025-12-03T07:54:59.289Z] Socket disconnected: bh45WHMcqcw8pu2EAAAN
+[2025-12-03T10:59:09.866Z] Socket connected: uAKCrkB63fCuAyLzAAAB
+[2025-12-03T11:23:32.919Z] Socket disconnected: uAKCrkB63fCuAyLzAAAB
+[2025-12-05T03:03:29.146Z] Socket connected: MKci0DkEuK_romTGAAAB
+[2025-12-05T03:03:32.920Z] Session created: 7ilyh6 by MKci0DkEuK_romTGAAAB
+[2025-12-05T03:03:32.924Z] Socket MKci0DkEuK_romTGAAAB joined session 7ilyh6 as teacher
+[2025-12-05T03:03:54.399Z] Socket connected: 8v824yDoZ0P7eukJAAAD
+[2025-12-05T03:03:54.492Z] JOIN FAILED: session 7ilyh6 not found
+[2025-12-05T03:09:46.516Z] Socket disconnected: MKci0DkEuK_romTGAAAB
+[2025-12-05T03:09:46.517Z] Teacher disconnected for session 7ilyh6
+[2025-12-05T03:09:46.535Z] Socket disconnected: 8v824yDoZ0P7eukJAAAD
+[2025-12-05T03:09:46.992Z] Socket connected: ozSbNSyROY3uRJBXAAAF
+[2025-12-05T03:16:43.890Z] Socket connected: zhnQe6kkJEeFfeDBAAAB
+[2025-12-05T03:23:20.312Z] Socket disconnected: zhnQe6kkJEeFfeDBAAAB
+[2025-12-05T03:23:20.899Z] Socket connected: RpLmanY9mU3L79iAAAAD
+[2025-12-05T03:23:23.662Z] Socket connected: lJRhn_FDkxLkcUfWAAAB
+[2025-12-05T03:23:25.250Z] Socket disconnected: lJRhn_FDkxLkcUfWAAAB
+[2025-12-05T03:23:25.880Z] Socket connected: m5Ie3LhNBCvAze-lAAAD
+[2025-12-05T03:23:26.921Z] Socket disconnected: m5Ie3LhNBCvAze-lAAAD
+[2025-12-05T03:23:27.318Z] Socket connected: 6DWrCnCEqUTMjUmDAAAF
+[2025-12-05T03:23:52.162Z] Socket disconnected: 6DWrCnCEqUTMjUmDAAAF
+[2025-12-05T03:23:52.534Z] Socket connected: aSqQxl0EGpIHgZVtAAAH
+[2025-12-05T03:23:54.299Z] Session created: eeiobj by aSqQxl0EGpIHgZVtAAAH
+[2025-12-05T03:23:54.304Z] Socket aSqQxl0EGpIHgZVtAAAH joined session eeiobj as teacher
+[2025-12-05T03:24:09.517Z] Socket connected: f-Y5kVGD9XwkjgCYAAAJ
+[2025-12-05T03:24:09.536Z] JOIN FAILED: session eeiobj not found
+[2025-12-05T03:27:12.412Z] Socket connected: SxYISsRSHlyd6PniAAAB
+[2025-12-05T03:27:12.485Z] Socket connected: WMrWPbL7GJnS1ZMdAAAD
+[2025-12-05T03:27:47.623Z] Socket disconnected: SxYISsRSHlyd6PniAAAB
+[2025-12-05T03:27:47.652Z] Socket disconnected: WMrWPbL7GJnS1ZMdAAAD
+[2025-12-05T03:27:48.082Z] Socket connected: thWN82kXaGSqoS2DAAAF
+[2025-12-05T03:27:59.591Z] Socket disconnected: thWN82kXaGSqoS2DAAAF
+[2025-12-05T03:28:00.100Z] Socket connected: iT4Chz1PMcVe5slbAAAH
+[2025-12-05T03:28:09.187Z] Session created: 74j39j by iT4Chz1PMcVe5slbAAAH
+[2025-12-05T03:28:09.191Z] Socket iT4Chz1PMcVe5slbAAAH joined session 74j39j as teacher
+[2025-12-05T03:28:25.898Z] Socket connected: EAEAE_s5rZw-xgsBAAAJ
+[2025-12-05T03:28:25.971Z] JOIN FAILED: session 74j39j not found
+[2025-12-05T03:29:29.032Z] Socket disconnected: iT4Chz1PMcVe5slbAAAH
+[2025-12-05T03:29:29.034Z] Teacher disconnected for session 74j39j
+[2025-12-05T03:29:29.054Z] Socket disconnected: EAEAE_s5rZw-xgsBAAAJ
+[2025-12-05T03:29:29.540Z] Socket connected: 5iSPNhEHYp-8aeFFAAAL
+[2025-12-05T03:30:24.070Z] Socket disconnected: 5iSPNhEHYp-8aeFFAAAL
+[2025-12-05T03:30:24.582Z] Socket connected: abRtSOevcQTIBv_fAAAN
+[2025-12-05T03:30:28.138Z] Session created: k8h3a8 by abRtSOevcQTIBv_fAAAN
+[2025-12-05T03:30:28.141Z] Socket abRtSOevcQTIBv_fAAAN joined session k8h3a8 as teacher
+[2025-12-05T03:30:48.034Z] Socket connected: a6-pVgoEDBqAkq4jAAAP
+[2025-12-05T03:30:48.095Z] JOIN FAILED: session k8h3a8 not found
+[2025-12-05T03:37:47.842Z] Socket disconnected: abRtSOevcQTIBv_fAAAN
+[2025-12-05T03:37:47.843Z] Teacher disconnected for session k8h3a8
+[2025-12-05T03:37:47.870Z] Socket disconnected: a6-pVgoEDBqAkq4jAAAP
+[2025-12-05T03:37:48.402Z] Socket connected: ue8JXWLtB_J0alyhAAAR
+[2025-12-05T03:40:31.044Z] Socket disconnected: ue8JXWLtB_J0alyhAAAR
+[2025-12-05T03:40:31.653Z] Socket connected: -nmeaQxbVPELSJWbAAAT
+[2025-12-05T03:40:38.135Z] Socket disconnected: -nmeaQxbVPELSJWbAAAT
+[2025-12-05T03:40:38.441Z] Socket connected: K5PXDBUJCis1a49HAAAV
+[2025-12-05T03:40:40.713Z] Session created: 0a7p2u by K5PXDBUJCis1a49HAAAV
+[2025-12-05T03:40:40.716Z] Socket K5PXDBUJCis1a49HAAAV joined session 0a7p2u as teacher
+[2025-12-05T03:41:00.435Z] Socket connected: rgDsGZBARp-lfP1JAAAX
+[2025-12-05T03:41:00.492Z] JOIN FAILED: session 0a7p2u not found
+[2025-12-05T03:41:28.325Z] Socket disconnected: rgDsGZBARp-lfP1JAAAX
+[2025-12-15T04:34:10.584Z] Socket connected: ibgXSborp_7mNSs5AAAB
+[2025-12-15T04:35:59.776Z] Socket disconnected: ibgXSborp_7mNSs5AAAB
+[2025-12-15T04:36:00.193Z] Socket connected: 2YoourS55IgwU1mSAAAD
+[2025-12-15T04:36:27.767Z] Socket connected: FDGVLoOY8LANtk1SAAAF
+[2025-12-15T04:36:46.880Z] Session created: cmwu6s by FDGVLoOY8LANtk1SAAAF
+[2025-12-15T04:36:46.884Z] Socket FDGVLoOY8LANtk1SAAAF joined session cmwu6s as teacher
+[2025-12-15T04:37:02.004Z] Socket disconnected: 2YoourS55IgwU1mSAAAD
+[2025-12-15T04:37:11.159Z] Socket connected: GC2xWC4aLEAQPoZsAAAH
+[2025-12-15T04:37:11.232Z] Socket GC2xWC4aLEAQPoZsAAAH joined session cmwu6s as student
+[2025-12-15T04:37:11.275Z] SIGNAL from FDGVLoOY8LANtk1SAAAF → GC2xWC4aLEAQPoZsAAAH
+[2025-12-15T04:37:53.923Z] Socket disconnected: GC2xWC4aLEAQPoZsAAAH
+[2025-12-15T04:37:53.955Z] Socket connected: 4RjJ3YZpmP_ZBNcRAAAJ
+[2025-12-15T04:46:52.639Z] Socket disconnected: 4RjJ3YZpmP_ZBNcRAAAJ
+[2025-12-15T04:46:52.692Z] Socket disconnected: FDGVLoOY8LANtk1SAAAF
+[2025-12-15T04:46:52.693Z] Teacher disconnected for session cmwu6s
+[2025-12-15T04:46:53.181Z] Socket connected: xnaQ1RcpjM7b6FvjAAAL
+[2025-12-15T04:46:53.314Z] Socket connected: -I-b3QYgtaUFKfMAAAAN
+[2025-12-15T04:52:23.427Z] Socket connected: WQjtHZeiKWSaKyu6AAAC
+[2025-12-15T04:52:23.440Z] Socket connected: ATdbdeIQuKnPEEDSAAAD
+[2025-12-15T04:55:12.422Z] Socket disconnected: ATdbdeIQuKnPEEDSAAAD
+[2025-12-15T04:55:12.427Z] Socket disconnected: WQjtHZeiKWSaKyu6AAAC
+[2025-12-15T04:55:12.795Z] Socket connected: PFxKB1pZmMfZiDDiAAAF
+[2025-12-15T04:55:13.020Z] Socket connected: jgb-RKCMn5u9fNoqAAAH
+[2025-12-15T09:29:50.093Z] Socket connected: VzuaOKL6sREtOjlyAAAB
+[2025-12-15T09:29:51.606Z] Session created: bga381 by VzuaOKL6sREtOjlyAAAB
+[2025-12-15T09:29:51.609Z] Socket VzuaOKL6sREtOjlyAAAB joined session bga381 as teacher
+[2025-12-15T09:47:37.518Z] Socket connected: 0Si5lcxGYin5iZSkAAAE
+[2025-12-15T09:47:37.539Z] Socket 0Si5lcxGYin5iZSkAAAE joined session bga381 as student
+[2025-12-15T09:47:37.666Z] Socket connected: 4CfD41D7A_rLFb6KAAAF
+[2025-12-15T09:47:37.747Z] Socket 4CfD41D7A_rLFb6KAAAF joined session bga381 as student
+[2025-12-15T09:47:38.391Z] Socket connected: 6cB-fiWQ1TBd0erDAAAH
+[2025-12-15T09:47:38.413Z] Socket 6cB-fiWQ1TBd0erDAAAH joined session bga381 as student
+[2025-12-15T09:47:38.965Z] Socket connected: CbUVjneDReztgHURAAAK
+[2025-12-15T09:47:39.020Z] Socket CbUVjneDReztgHURAAAK joined session bga381 as student
+[2025-12-15T09:47:39.244Z] Socket connected: Pkrs9RGMlCYdqItBAAAL
+[2025-12-15T09:47:39.350Z] Socket Pkrs9RGMlCYdqItBAAAL joined session bga381 as student
+[2025-12-15T09:47:39.634Z] Socket connected: afR2z59lQzfRLaNTAAAN
+[2025-12-15T09:47:39.673Z] Socket afR2z59lQzfRLaNTAAAN joined session bga381 as student
+[2025-12-15T09:47:42.890Z] Socket connected: uTXc__4veg3ZjFb8AAAQ
+[2025-12-15T09:47:42.982Z] Socket uTXc__4veg3ZjFb8AAAQ joined session bga381 as student
+[2025-12-15T09:47:43.208Z] Socket connected: -bLTwLOmSqSVUE_YAAAR
+[2025-12-15T09:47:43.286Z] Socket -bLTwLOmSqSVUE_YAAAR joined session bga381 as student
+[2025-12-15T09:47:45.825Z] Socket connected: 5_9GveV1K7w3jJviAAAT
+[2025-12-15T09:47:45.855Z] Socket 5_9GveV1K7w3jJviAAAT joined session bga381 as student
+[2025-12-15T09:47:46.016Z] Socket connected: AajPZlakKIxJqx5IAAAV
+[2025-12-15T09:47:46.052Z] Socket AajPZlakKIxJqx5IAAAV joined session bga381 as student
+[2025-12-15T09:47:48.044Z] Socket connected: lid0VAtXjx4xHu4zAAAX
+[2025-12-15T09:47:48.102Z] Socket lid0VAtXjx4xHu4zAAAX joined session bga381 as student
+[2025-12-15T09:47:58.349Z] Socket connected: 6tB6T3ltZ2bU-fTUAAAZ
+[2025-12-15T09:47:58.562Z] Socket 6tB6T3ltZ2bU-fTUAAAZ joined session bga381 as student
+[2025-12-15T09:48:00.609Z] Socket connected: uf1e5hrKCRYz0kqWAAAb
+[2025-12-15T09:48:00.698Z] Socket uf1e5hrKCRYz0kqWAAAb joined session bga381 as student
+[2025-12-15T09:48:07.607Z] Socket connected: si33gzhn6hyellBEAAAd
+[2025-12-15T09:48:07.644Z] Socket si33gzhn6hyellBEAAAd joined session bga381 as student
+[2025-12-15T09:48:21.017Z] Socket connected: -_6_tzHiwBU6-8uaAAAf
+[2025-12-15T09:48:21.070Z] Socket -_6_tzHiwBU6-8uaAAAf joined session bga381 as student
+[2025-12-15T09:48:24.538Z] Socket connected: oKFWGX6r4rtxGgp_AAAh
+[2025-12-15T09:48:24.595Z] Socket oKFWGX6r4rtxGgp_AAAh joined session bga381 as student
+[2025-12-15T09:48:43.273Z] Socket connected: 0gE_8Qie306b7jI1AAAj
+[2025-12-15T09:48:43.376Z] Socket 0gE_8Qie306b7jI1AAAj joined session bga381 as student
+[2025-12-15T10:03:35.975Z] Socket disconnected: AajPZlakKIxJqx5IAAAV
+[2025-12-15T10:04:27.552Z] Socket disconnected: 0gE_8Qie306b7jI1AAAj
+[2025-12-15T10:04:29.878Z] Socket disconnected: -_6_tzHiwBU6-8uaAAAf
+[2025-12-15T10:04:33.552Z] Socket disconnected: oKFWGX6r4rtxGgp_AAAh
+[2025-12-15T10:04:33.902Z] Socket disconnected: 6tB6T3ltZ2bU-fTUAAAZ
+[2025-12-15T10:04:34.723Z] Socket disconnected: uf1e5hrKCRYz0kqWAAAb
+[2025-12-15T10:04:36.396Z] Socket disconnected: 0Si5lcxGYin5iZSkAAAE
+[2025-12-15T10:04:36.678Z] Socket disconnected: 4CfD41D7A_rLFb6KAAAF
+[2025-12-15T10:04:37.596Z] Socket disconnected: 6cB-fiWQ1TBd0erDAAAH
+[2025-12-15T10:04:38.652Z] Socket disconnected: Pkrs9RGMlCYdqItBAAAL
+[2025-12-15T10:04:38.811Z] Socket disconnected: CbUVjneDReztgHURAAAK
+[2025-12-15T10:04:39.459Z] Socket disconnected: afR2z59lQzfRLaNTAAAN
+[2025-12-15T10:04:41.993Z] Socket disconnected: si33gzhn6hyellBEAAAd
+[2025-12-15T10:04:42.008Z] Socket disconnected: uTXc__4veg3ZjFb8AAAQ
+[2025-12-15T10:04:42.308Z] Socket disconnected: -bLTwLOmSqSVUE_YAAAR
+[2025-12-15T10:04:44.949Z] Socket disconnected: 5_9GveV1K7w3jJviAAAT
+[2025-12-15T10:04:46.671Z] Socket disconnected: lid0VAtXjx4xHu4zAAAX
+[2025-12-15T10:05:20.324Z] Socket disconnected: VzuaOKL6sREtOjlyAAAB
+[2025-12-15T10:05:20.325Z] Teacher disconnected for session bga381
+[2025-12-15T10:05:56.835Z] Socket connected: v37r8B16L7Yhfd1XAAAl
+[2025-12-15T10:05:57.071Z] Socket connected: 055pmwQzpF_-UQ2fAAAq
+[2025-12-15T10:05:57.126Z] Socket connected: cw-3qt4uf8HivGG4AAAs
+[2025-12-15T10:05:57.130Z] Socket connected: m6UVaV6uqCusWQQfAAAt
+[2025-12-15T10:05:57.461Z] Socket connected: ejZ9OVKFPZKzpt14AAAv
+[2025-12-15T10:05:57.821Z] Socket connected: RbQ6Hai1D6A27G2yAAAy
+[2025-12-15T10:05:58.180Z] Socket connected: hMRG5pEVdz9crh0PAAA0
+[2025-12-15T10:05:58.819Z] Socket connected: TXiGRlYAkSpbEQ2IAAA2
+[2025-12-15T10:05:59.363Z] Socket connected: RI1B7QZ0H07nD4_CAAA5
+[2025-12-15T10:05:59.365Z] Socket connected: xj8WIqdVMv3YBSSsAAA6
+[2025-12-15T10:05:59.885Z] Socket connected: nnpJeUUo6B4uEoaGAAA8
+[2025-12-15T10:06:00.263Z] Socket connected: PsTzvXo02EVMOt4QAAA-
+[2025-12-15T10:06:00.710Z] Socket connected: WMxJju_ovbMx8UupAABA
+[2025-12-15T10:06:02.082Z] Socket connected: f2tVql9EFgnF72nbAABC
+[2025-12-15T10:06:02.419Z] Socket connected: optrsNxwVltcnquDAABE
+[2025-12-15T10:06:03.050Z] Socket connected: 7QQXzxPI5XH1LEV_AABG
+[2025-12-15T10:06:03.189Z] Socket connected: LKIxJmNOlBjWbk1AAABI
+[2025-12-15T10:47:53.326Z] Socket disconnected: cw-3qt4uf8HivGG4AAAs
+[2025-12-15T10:48:56.498Z] Socket disconnected: TXiGRlYAkSpbEQ2IAAA2
+[2025-12-15T10:49:27.767Z] Socket disconnected: nnpJeUUo6B4uEoaGAAA8
+[2025-12-15T10:49:58.400Z] Socket disconnected: WMxJju_ovbMx8UupAABA
+[2025-12-15T10:49:59.011Z] Socket disconnected: optrsNxwVltcnquDAABE
+[2025-12-15T10:51:02.044Z] Socket disconnected: v37r8B16L7Yhfd1XAAAl
+[2025-12-15T10:51:53.961Z] Socket disconnected: hMRG5pEVdz9crh0PAAA0
+[2025-12-15T10:52:20.815Z] Socket disconnected: PsTzvXo02EVMOt4QAAA-
+[2025-12-15T10:52:38.386Z] Socket disconnected: ejZ9OVKFPZKzpt14AAAv
+[2025-12-15T10:54:04.986Z] Socket disconnected: xj8WIqdVMv3YBSSsAAA6
+[2025-12-15T10:54:07.845Z] Socket disconnected: 055pmwQzpF_-UQ2fAAAq
+[2025-12-15T10:54:48.390Z] Socket disconnected: 7QQXzxPI5XH1LEV_AABG
+[2025-12-15T10:56:20.473Z] Socket disconnected: RI1B7QZ0H07nD4_CAAA5
+[2025-12-15T10:57:58.092Z] Socket disconnected: m6UVaV6uqCusWQQfAAAt
+[2025-12-15T10:57:58.724Z] Socket disconnected: RbQ6Hai1D6A27G2yAAAy
+[2025-12-15T10:58:43.821Z] Socket disconnected: LKIxJmNOlBjWbk1AAABI

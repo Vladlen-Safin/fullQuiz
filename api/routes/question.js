@@ -21,6 +21,82 @@ questionRouter.post("/create", authMiddleware, roleMiddleware(["teacher", "admin
   }
 });
 
+// Добавить множество вопросов
+questionRouter.post(
+  "/createMany",
+  authMiddleware,
+  roleMiddleware(["teacher", "admin"]),
+  async (req, res) => {
+    try {
+      const { rawText, gameGroupId } = req.body;
+
+      if (!rawText || !gameGroupId) {
+        return res.status(400).json({
+          status: "warning",
+          message: "Текст вопросов и gameGroupId обязательны",
+        });
+      }
+
+      // 1. Разделяем блоки вопросов по пустым строкам
+      const blocks = rawText
+        .split(/\n\s*\n/) // разделяем по одной или нескольким пустым строкам
+        .map((b) => b.trim())
+        .filter((b) => b.length > 0);
+
+      const createdQuestions = [];
+
+      for (const block of blocks) {
+        const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+
+        if (lines.length < 2) {
+          continue; // недостаточно данных
+        }
+
+        // Первая строка — текст вопроса
+        const text = lines[0];
+
+        // Остальные строки — варианты
+        const options = lines.slice(1);
+
+        // Ищем правильный ответ (строка со *)
+        const correct = options.find((opt) => opt.startsWith("*"));
+
+        if (!correct) {
+          return res.status(400).json({
+            status: "warning",
+            message: `У вопроса "${text}" нет ответа, помеченного *`,
+          });
+        }
+
+        const question = new Question({
+          text,
+          type: "single",
+          options,          // сохраняем, модель сама очистит *
+          gameGroupId,
+        });
+
+        await question.save();
+        createdQuestions.push(question);
+      }
+
+      return res.status(200).json({
+        status: "success",
+        created: createdQuestions.length,
+        questions: createdQuestions,
+      });
+
+    } catch (error) {
+      console.error("Ошибка при добавлении вопросов: ", error);
+      return res.status(500).json({
+        status: "error",
+        error: "Ошибка при добавлении вопросов",
+        message: error,
+      });
+    }
+  }
+);
+
+
 // Изменить вопрос
 questionRouter.put("/:id", authMiddleware, roleMiddleware(["teacher", "admin"]), async (req, res) => {
   try {

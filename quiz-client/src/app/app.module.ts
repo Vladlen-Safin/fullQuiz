@@ -12,6 +12,8 @@ import { CreateGameModule } from './components/create-game/create-game.module';
 import { JoinGameModule } from './components/join-game/join-game.module';
 import { LobbyModule } from './components/lobby/lobby.module';
 import { AdminModule } from './pages/admin/admin.module';
+import { TeacherModule } from './components/teacher/teacher.module';
+import { StudentModule } from './components/student/student.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AdminModule } from './pages/admin/admin.module';
     CreateGameModule,
     JoinGameModule,
     LobbyModule,
-    AdminModule
+    AdminModule,
+    TeacherModule,
+    StudentModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
